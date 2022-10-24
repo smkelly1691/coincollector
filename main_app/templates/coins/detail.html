@@ -10,6 +10,10 @@
         <p>Description: {{ coin.description|linebreaks }}</p>
         <p>Value: {{ coin.value }}</p>
     </div>
+    <div class="card-action">
+        <a href="{% url 'coins_update' coin.id %}">Edit</a>
+        <a href="{% url 'coins_delete' coin.id %}">Delete</a>
+    </div>
 </div>
 
 {% endblock %}
