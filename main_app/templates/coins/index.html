@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>My Coin Collection</h1>
+
+{% for coin in coins %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ coin.name }}</span>
+      <p>Year: {{ coin.year }}</p>
+      <p>Description: {{ coin.description }}</p>
+      <p>Value: {{ coin.value }}</p>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
