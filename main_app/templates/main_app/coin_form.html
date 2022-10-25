@@ -2,7 +2,8 @@
 
 {% block content %}
     {% if object %}
-        <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+    <h1><span class="teal-text">{{object.name}}</span></h1>
+    <h1 id="edit">Edit</h1>
     {% else %}
         <h1>Add Coin</h1>
     {% endif %}

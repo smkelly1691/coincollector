@@ -3,6 +3,10 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: azure;
+    background-image: url("https://img.freepik.com/premium-photo/collection-coins-white-background_573652-1158.jpg?w=2000");
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
   }
   
 main {
@@ -21,4 +25,29 @@ nav {
 
 .card-content {
     background-color: rgb(226, 221, 221);
+}
+
+hr {
+  width: 400px;
+  margin-left: 0
+}
+
+#id_name, #id_year, #id_description, #id_value {
+  background-color: rgb(220, 194, 203);
+  padding: 10px;
+}
+
+label {
+  font-size: 25px;
+  padding: 10px;
+}
+
+input.btn {
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+#edit {
+  font-size: 30px;
+  margin-top: 0;
 }
