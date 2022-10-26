@@ -20,7 +20,7 @@ class Coin(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'coin_id': self.id})
     
-class Appraisal(models.Model):
+class Appraising(models.Model):
     date = models.DateField('Appraisal Date')
     type = models.CharField(
         max_length=2,

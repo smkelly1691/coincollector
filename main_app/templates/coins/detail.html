@@ -3,17 +3,34 @@
 
 <h1>Coin Details</h1>
 
-<div class="card">
-    <div class="card-content">
+<div class="row">
+  <div class="col s6">
+    <div class="card">
+      <div class="card-content">
         <span class="card-title">{{ coin.name }}</span>
         <p>Year: {{ coin.year }}</p>
         <p>Description: {{ coin.description|linebreaks }}</p>
-        <p>Value: {{ coin.value }}</p>
-    </div>
-    <div class="card-action">
+      </div>
+      <div class="card-action">
         <a href="{% url 'coins_update' coin.id %}">Edit</a>
         <a href="{% url 'coins_delete' coin.id %}">Delete</a>
+      </div>
     </div>
+  </div>
+  <div class="col s6">
+    <table class="striped">
+      <thead>
+        <tr><th>Date</th><th>Type</th></tr>
+      </thead>
+      <tbody>
+        {% for appraising in coin.appraising_set.all %}
+          <tr>
+            <td>{{appraising.date}}</td>
+            <td>{{appraising.get_type_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
-
 {% endblock %}
