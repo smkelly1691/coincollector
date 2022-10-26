@@ -8,11 +8,25 @@ TYPES = (
 )
 
 # Create your models here.
+
+class Show(models.Model):
+    name = models.CharField(max_length=50)
+    location = models.CharField(max_length=30)
+    date = models.DateField('Show Date')
+    
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse("shows_detail", kwargs={"pk": self.id})
+    
+
 class Coin(models.Model):
     name = models.CharField(max_length=100)
     year = models.IntegerField()
     description = models.TextField(max_length=250)
     value = models.DecimalField(max_digits=7, decimal_places=2)
+    shows = models.ManyToManyField(Show)
     
     def __str__(self):
         return self.name
