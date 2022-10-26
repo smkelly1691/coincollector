@@ -32,3 +32,6 @@ class Appraising(models.Model):
     
     def __str__(self):
         return f"{self.get_type_display()} on {self.date}"
+    
+    class Meta:
+        ordering = ['-date']

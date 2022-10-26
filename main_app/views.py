@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Coin
 from .forms import AppraisingForm
@@ -18,6 +18,19 @@ def coins_detail(request, coin_id):
     coin = Coin.objects.get(id=coin_id)
     appraising_form = AppraisingForm()
     return render(request, 'coins/detail.html', { 'coin': coin, 'appraising_form': appraising_form})
+
+def add_appraising(request, coin_id):
+  # create a ModelForm instance using the data in request.POST
+  form = AppraisingForm(request.POST)
+  # validate the form
+  if form.is_valid():
+    # don't save the form to the db until it
+    # has the coin_id assigned
+    new_appraising = form.save(commit=False)
+    new_appraising.coin_id = coin_id
+    new_appraising.save()
+  return redirect('detail', coin_id=coin_id)
+
 
 class CoinCreate(CreateView):
   model = Coin
